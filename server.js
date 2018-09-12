@@ -4,6 +4,8 @@ const fs = require("fs");
 
 const app = express();
 
+const PORT = process.env.PORT || 8080;
+
 hbs.registerPartials("./views/partials");
 app.set("view engine", "hbs");
 app.use(express.static("./public"));
@@ -39,6 +41,6 @@ app.get("/about", (req, res) => {
   });
 });
 
-app.listen(8080, () => {
-  console.log("server up");
+app.listen(PORT, () => {
+  console.log("server starting up on port",PORT);
 });
